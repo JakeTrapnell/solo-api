@@ -1,0 +1,11 @@
+INSERT INTO CLASSROOM (id, trainer) VALUES (1, 'John')
+INSERT INTO CLASSROOM (id, trainer) VALUES (2, 'Dave')
+INSERT INTO CLASSROOM (id, trainer) VALUES (3, 'Matt')
+INSERT INTO CLASSROOM (id, trainer) VALUES (4, 'Jordan')
+INSERT INTO CLASSROOM (id, trainer) VALUES (5, 'Naomi')
+
+INSERT INTO TRAINEE (id, traineeName) VALUES (1, 'Jake')
+INSERT INTO TRAINEE (id, traineeName) VALUES (2, 'Katie')
+INSERT INTO TRAINEE (id, traineeName) VALUES (3, 'Brad')
+INSERT INTO TRAINEE (id, traineeName) VALUES (4, 'Konrad')
+INSERT INTO TRAINEE (id, traineeName) VALUES (5, 'Joel')
