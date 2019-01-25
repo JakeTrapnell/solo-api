@@ -1,8 +1,14 @@
 com\qa\persistence\repository\UsersDBR.class
 com\qa\persistence\repository\UsersRepository.class
+com\qa\business\service\RecipeServiceImpl.class
+com\qa\persistence\repository\RecipesRepository.class
 com\qa\business\service\UserService.class
 com\qa\rest\UserEndPoint.class
+com\qa\business\service\RecipeService.class
+com\qa\persistence\domain\RecipesTable.class
+com\qa\business\service\UserServiceImpl.class
 com\qa\util\JSONUtil.class
 com\qa\persistence\domain\UsersTable.class
+com\qa\persistence\repository\RecipesDBR.class
 com\qa\rest\JAXActivator.class
-com\qa\business\service\UserServiceImpl.class
+com\qa\rest\RecipeEndPoint.class

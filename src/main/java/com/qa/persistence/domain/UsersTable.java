@@ -12,7 +12,6 @@ public class UsersTable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id
 	private Long id;
-	
 	@Size(min = 2, max = 20)
 	private String name;
 	
