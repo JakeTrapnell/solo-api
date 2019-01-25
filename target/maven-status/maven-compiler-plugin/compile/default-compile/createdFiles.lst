@@ -1,0 +1,8 @@
+com\qa\persistence\repository\UsersDBR.class
+com\qa\persistence\repository\UsersRepository.class
+com\qa\business\service\UserService.class
+com\qa\rest\UserEndPoint.class
+com\qa\util\JSONUtil.class
+com\qa\persistence\domain\UsersTable.class
+com\qa\rest\JAXActivator.class
+com\qa\business\service\UserServiceImpl.class
