@@ -10,7 +10,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import org.apache.log4j.Logger;
 import com.qa.business.service.RecipeService;
-import com.qa.business.service.UserService;
 
 @Path("/recipe")
 public class RecipeEndPoint {

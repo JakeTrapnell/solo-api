@@ -11,6 +11,7 @@ import javax.ws.rs.Produces;
 import org.apache.log4j.Logger;
 import com.qa.business.service.UserService;
 
+
 @Path("/user")
 public class UserEndPoint {
 	

@@ -1,6 +1,7 @@
 C:\Users\Admin\eclipse-workspace\Solo-API\src\main\java\com\qa\persistence\repository\UsersRepository.java
 C:\Users\Admin\eclipse-workspace\Solo-API\src\main\java\com\qa\rest\JAXActivator.java
 C:\Users\Admin\eclipse-workspace\Solo-API\src\main\java\com\qa\business\service\UserService.java
+C:\Users\Admin\eclipse-workspace\Solo-API\src\main\java\com\qa\rest\CORSFilter.java
 C:\Users\Admin\eclipse-workspace\Solo-API\src\main\java\com\qa\persistence\repository\UsersDBR.java
 C:\Users\Admin\eclipse-workspace\Solo-API\src\main\java\com\qa\business\service\RecipeService.java
 C:\Users\Admin\eclipse-workspace\Solo-API\src\main\java\com\qa\rest\RecipeEndPoint.java

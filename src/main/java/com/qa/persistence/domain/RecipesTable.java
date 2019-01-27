@@ -24,12 +24,17 @@ public class RecipesTable {
 	
 	public RecipesTable(String cuisine, String timeToCook, String isVegitarian, 
 						String course, String ingredients, String method) {
-		this.setCuisine(cuisine);
-		this.setTimeToCook(timeToCook);
-		this.setIsVegitarian(isVegitarian);
-		this.setCourse(course);
-		this.setIngredients(ingredients);
-		this.setMethod(method);	
+		
+		this.cuisine = cuisine;
+		this.timeToCook = timeToCook;
+		this.isVegitarian = isVegitarian;
+		this.course = course;
+		this.ingredients = ingredients;
+		this.method = method;	
+	}
+	
+	public RecipesTable() {
+		
 	}
 
 	public String getCuisine() {
