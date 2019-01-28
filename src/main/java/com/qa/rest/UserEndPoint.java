@@ -25,6 +25,7 @@ public class UserEndPoint {
 		return service.getAllUsers();
 		//url: GET
 		//http://localhost:8080/Solo-API/rest/user/json
+		//make it work same way as delete!!! by taking an id
 	}
 	
 	@Path("/json/")	
