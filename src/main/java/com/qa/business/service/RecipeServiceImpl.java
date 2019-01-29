@@ -16,8 +16,8 @@ public class RecipeServiceImpl implements RecipeService {
 		return repo.createRecipe(recipe);
 	}
 
-	public String getAllRecipes() {
-		return repo.getRecipes();
+	public String getRecipe(Long id) {
+		return repo.getRecipe(id);
 	}
 
 	public String deleteRecipe(Long id) {

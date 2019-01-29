@@ -35,10 +35,17 @@ public class UsersDBR implements UsersRepository {
 	}
 
 	@Transactional(REQUIRED)
-	public String getAllUsers() {
-		Query query = manager.createQuery("Select a FROM UsersTable a");
-		Collection<UsersTable> users = (Collection<UsersTable>) query.getResultList();
-		return util.getJSONForObject(users);
+	public String getUser(Long id) {
+		//Query query = manager.createQuery("Select a FROM UsersTable a");
+		//Collection<UsersTable> users = (Collection<UsersTable>) query.getResultList();
+		//return util.getJSONForObject(users);
+		UsersTable userInDB = findUser(id);
+		if(userInDB != null) {
+			return util.getJSONForObject(userInDB);
+		}
+		else {
+			return "{\"message\": \"User not found\"}";
+		}
 	}
 
 	@Transactional(REQUIRED)

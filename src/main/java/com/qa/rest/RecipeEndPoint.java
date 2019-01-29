@@ -17,11 +17,11 @@ public class RecipeEndPoint {
 	@Inject
 	private RecipeService service;
 	
-	@Path("json")
+	@Path("json/{id}")
 	@GET
 	@Produces({"application/json"})
-	public String getRecipes() {
-		return service.getAllRecipes();
+	public String getRecipe(@PathParam("id") Long id) {
+		return service.getRecipe(id);
 		//url: GET
 		//http://localhost:8080/Solo-API/rest/recipe/json
 	}

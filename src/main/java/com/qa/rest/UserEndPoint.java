@@ -18,11 +18,11 @@ public class UserEndPoint {
 	@Inject
 	private UserService service;
 	
-	@Path("/json/")
+	@Path("/json/{id}")
 	@GET
 	@Produces({"application/json"})
-	public String getAllUsers() {
-		return service.getAllUsers();
+	public String getUser(@PathParam("id") Long id) {
+		return service.getUser(id);
 		//url: GET
 		//http://localhost:8080/Solo-API/rest/user/json
 		//make it work same way as delete!!! by taking an id

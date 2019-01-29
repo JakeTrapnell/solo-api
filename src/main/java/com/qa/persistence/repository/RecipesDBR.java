@@ -34,10 +34,17 @@ public class RecipesDBR implements RecipesRepository {
 	}
 
 	@Transactional(REQUIRED)
-	public String getRecipes() {	
-		Query query = manager.createQuery("Select a FROM RecipesTable a");
-		Collection<RecipesTable> recipes = (Collection<RecipesTable>) query.getResultList();
-		return util.getJSONForObject(recipes);	
+	public String getRecipe(Long id) {	
+		//Query query = manager.createQuery("Select a FROM RecipesTable a");
+		//Collection<RecipesTable> recipes = (Collection<RecipesTable>) query.getResultList();
+		//return util.getJSONForObject(recipes);
+		RecipesTable recipeInDB = findRecipe(id);
+		if(recipeInDB != null) {
+			return util.getJSONForObject(recipeInDB);
+		}
+		else {
+			return "{\"message\": \"recipe not found\"}";
+		}
 	}
 
 	@Transactional(REQUIRED)
