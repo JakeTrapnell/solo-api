@@ -17,7 +17,7 @@ public class RecipeEndPoint {
 	@Inject
 	private RecipeService service;
 	
-	@Path("json/{id}")
+	@Path("/json/{id}")
 	@GET
 	@Produces({"application/json"})
 	public String getRecipe(@PathParam("id") Long id) {
@@ -26,7 +26,7 @@ public class RecipeEndPoint {
 		//http://localhost:8080/Solo-API/rest/recipe/json
 	}
 	
-	@Path("json")
+	@Path("/json/")
 	@POST
 	@Produces({"application/json"})
 	public String addRecipe(String recipe) {
