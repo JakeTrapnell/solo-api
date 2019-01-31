@@ -28,10 +28,10 @@ public class UserEndPoint {
 		//make it work same way as delete!!! by taking an id
 	}
 	
-	@Path("/json/")	
+	@Path("/json")	
 	@POST
 	@Produces({"application/json"})
-	public String addUser(String user) {
+	public String createUser(String user) {
 		return service.createUser(user);
 		//url: POST
 		//http://localhost:8080/Solo-API/rest/user/json

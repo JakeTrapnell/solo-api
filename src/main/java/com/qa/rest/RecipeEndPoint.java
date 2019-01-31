@@ -26,10 +26,10 @@ public class RecipeEndPoint {
 		//http://localhost:8080/Solo-API/rest/recipe/json
 	}
 	
-	@Path("/json/")
+	@Path("/json")
 	@POST
 	@Produces({"application/json"})
-	public String addRecipe(String recipe) {
+	public String createRecipe(String recipe) {
 		return service.createRecipe(recipe);
 		//url: POST			
 		//http://localhost:8080/Solo-API/rest/recipe/json
