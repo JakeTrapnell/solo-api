@@ -46,6 +46,13 @@ public class RecipesDBR implements RecipesRepository {
 			return "{\"message\": \"recipe not found\"}";
 		}
 	}
+	
+	@Transactional(REQUIRED)
+	public String getAllRecipes() {
+		Query query = manager.createQuery("Select a FROM RecipesTable a");
+		Collection<RecipesTable> recipes = (Collection<RecipesTable>) query.getResultList();
+		return util.getJSONForObject(recipes);
+	}
 
 	@Transactional(REQUIRED)
 	public String deleteRecipe(Long id) {
@@ -68,5 +75,14 @@ public class RecipesDBR implements RecipesRepository {
 	private RecipesTable findRecipe(Long id) {
 		return manager.find(RecipesTable.class, id);
 	}
+	
+	public void setManager(EntityManager manager) {
+		this.manager = manager;
+	}
+
+	public void setUtil(JSONUtil util) {
+		this.util = util;
+	}
+	
 
 }

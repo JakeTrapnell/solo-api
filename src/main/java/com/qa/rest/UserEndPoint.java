@@ -10,6 +10,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import org.apache.log4j.Logger;
 import com.qa.business.service.UserService;
+import com.qa.persistence.repository.UsersDBR;
 
 
 @Path("/user")
@@ -23,9 +24,14 @@ public class UserEndPoint {
 	@Produces({"application/json"})
 	public String getUser(@PathParam("id") Long id) {
 		return service.getUser(id);
-		//url: GET
-		//http://localhost:8080/Solo-API/rest/user/json
-		//make it work same way as delete!!! by taking an id
+		//http://localhost:8080/Solo-API/rest/user/json/(id number)
+	}
+	
+	@Path("/json")
+	@GET
+	@Produces({"application/json"})
+	public String getAllUsers() {
+		return service.getAllUsers();
 	}
 	
 	@Path("/json")	
@@ -33,7 +39,6 @@ public class UserEndPoint {
 	@Produces({"application/json"})
 	public String createUser(String user) {
 		return service.createUser(user);
-		//url: POST
 		//http://localhost:8080/Solo-API/rest/user/json
 	}
 	

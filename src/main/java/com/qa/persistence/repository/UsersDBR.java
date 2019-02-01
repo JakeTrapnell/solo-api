@@ -47,6 +47,13 @@ public class UsersDBR implements UsersRepository {
 			return "{\"message\": \"User not found\"}";
 		}
 	}
+	
+	@Transactional(REQUIRED)
+	public String getAllUsers() {
+		Query query = manager.createQuery("Select a FROM UsersTable a");
+				Collection<UsersTable> users = (Collection<UsersTable>) query.getResultList();
+				return util.getJSONForObject(users);
+	}
 
 	@Transactional(REQUIRED)
 	public String deleteUser(Long id) {
@@ -68,6 +75,14 @@ public class UsersDBR implements UsersRepository {
 	
 	private UsersTable findUser(Long id) {
 		return manager.find(UsersTable.class, id);
+	}
+	
+	public void setManager(EntityManager manager) {
+		this.manager = manager;
+	}
+
+	public void setUtil(JSONUtil util) {
+		this.util = util;
 	}
 
 }

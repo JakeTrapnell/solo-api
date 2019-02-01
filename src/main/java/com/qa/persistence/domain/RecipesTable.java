@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
 @Entity
 public class RecipesTable {
 
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private Long id;
 	

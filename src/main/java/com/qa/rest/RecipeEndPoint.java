@@ -27,6 +27,13 @@ public class RecipeEndPoint {
 	}
 	
 	@Path("/json")
+	@GET
+	@Produces({"application/json"})
+	public String getAllRecipes() {
+		return service.getAllRecipes();
+	}
+	
+	@Path("/json")
 	@POST
 	@Produces({"application/json"})
 	public String createRecipe(String recipe) {
