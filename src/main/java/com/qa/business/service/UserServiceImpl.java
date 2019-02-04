@@ -13,7 +13,14 @@ public class UserServiceImpl  implements UserService{
 	private UsersRepository repo;
 
 	public String createUser(String user) {
-		return repo.createUser(user);
+		
+		if(user.length() == 0) {
+			String message = "cannot create user with empty field";
+			return message;
+		}
+		else {
+			return repo.createUser(user);
+		}
 	}
 
 	public String getUser(Long id) {
@@ -29,7 +36,14 @@ public class UserServiceImpl  implements UserService{
 	}
 
 	public String updateUser(Long id, String user) {
-		return repo.updateUser(id, user);
+		
+		if(user.length() == 0) {
+			String message = "cannot update user with empty field";
+			return message;
+		}
+		else {
+			return repo.updateUser(id, user);
+		}
 	}
 
 	public void setRepo(UsersRepository repo) {

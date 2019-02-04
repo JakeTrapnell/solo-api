@@ -29,7 +29,7 @@ public class RecipeServiceImpl implements RecipeService {
 	}
 
 	public String updateRecipe(Long id, String recipe) {
-		return repo.deleteRecipe(id);
+		return repo.updateRecipe(id, recipe);
 	}
 	
 	public void setRepo(RecipesRepository repo) {
