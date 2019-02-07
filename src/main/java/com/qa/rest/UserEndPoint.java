@@ -42,20 +42,20 @@ public class UserEndPoint {
 		//http://localhost:8080/Solo-API/rest/user/json
 	}
 	
-	@Path("/json/{id}")
+	@Path("/json/{id}/{password}")
 	@DELETE
 	@Produces({"application/json"})
-	public String deleteUser(@PathParam("id") Long id) {
-		return service.deleteUser(id);
-		//localhost:8080/Solo-API/rest/user/json/1 deletes user 1
+	public String deleteUser(@PathParam("id") Long id, @PathParam("password") String password) {
+		return service.deleteUser(id, password);
+		//localhost:8080/Solo-API/rest/user/json/1/"password" deletes user 1
 	}
 	
-	@Path("/json/{id}")
+	@Path("/json/{id}/{password}")
 	@POST
 	@Produces({"application/json"})
-	public String updateUser(@PathParam("id") Long id, String user) {
-		return service.updateUser(id, user);
-		// localhost:8080/Solo-API/rest/user/json/3 replaces user 3 with what ever is sent
+	public String updateUser(@PathParam("id") Long id, @PathParam("password") String password, String user) {
+		return service.updateUser(id, password, user);
+		// localhost:8080/Solo-API/rest/user/json/3/"password" replaces user 3 with what ever is sent
 	}
 	
 	public void setService(UserService service) {

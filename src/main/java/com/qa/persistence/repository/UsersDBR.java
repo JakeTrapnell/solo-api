@@ -56,21 +56,32 @@ public class UsersDBR implements UsersRepository {
 	}
 
 	@Transactional(REQUIRED)
-	public String deleteUser(Long id) {
+	public String deleteUser(Long id, String password) {
 		UsersTable userInDB = findUser(id);
-		if(userInDB != null) {
+		String userPass = userInDB.getPassword();
+		if(userInDB != null && userPass.equals(password)) {
 			manager.remove(userInDB);
+			return "{\"message\": \"User sucessfully deleted\"}";
 		}
-		return "{\"message\": \"User sucessfully deleted\"}";
+		else {
+			return"{\\\"message\\\": \\\"User has not been deleted\\\"}";
+		}
+	
 	}
 
 	@Transactional(REQUIRED)
-	public String updateUser(Long id, String user) {
+	public String updateUser(Long id, String password, String user) {
 		UsersTable theUser = findUser(id);
-		manager.remove(theUser);
-		UsersTable aUser = util.getObjectForJSON(user, UsersTable.class);
-		manager.persist(aUser);
-		return  "{\"message\": \"User sucessfully updated\"}";
+		String userPass = theUser.getPassword();
+		if(theUser != null && userPass.equals(password)) {
+			manager.remove(theUser);
+			UsersTable aUser = util.getObjectForJSON(user, UsersTable.class);
+			manager.persist(aUser);
+			return  "{\"message\": \"User sucessfully updated\"}";
+		}
+		else {
+			return "{\"message\": \"failed to update user\"}";
+		}
 	}
 	
 	private UsersTable findUser(Long id) {
