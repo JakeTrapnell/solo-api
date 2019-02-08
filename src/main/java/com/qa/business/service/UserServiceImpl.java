@@ -29,7 +29,7 @@ public class UserServiceImpl  implements UserService{
 			message = "name has not been entered!";
 			return message;
 		}
-		if(userPass.isEmpty() || !userPass.matches(upperPattern) || !userPass.matches(numPattern)) {
+		if(userPass.length() < 5 || !userPass.matches(upperPattern) || !userPass.matches(numPattern)) {
 			message = "invalid password! must contain one capitol letter, one number and be at least 5 characters long";
 			return message;
 		}

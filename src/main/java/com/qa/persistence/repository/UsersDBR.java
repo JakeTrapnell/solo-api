@@ -31,7 +31,7 @@ public class UsersDBR implements UsersRepository {
 	public String createUser(String user) {
 		UsersTable aUser = util.getObjectForJSON(user, UsersTable.class);
 		manager.persist(aUser);
-		return "{\\\"message\\\": \\\"User has been sucessfully added\\\"}";
+		return "User has been sucessfully added";
 	}
 
 	@Transactional(REQUIRED)
@@ -44,7 +44,7 @@ public class UsersDBR implements UsersRepository {
 			return util.getJSONForObject(userInDB);
 		}
 		else {
-			return "{\"message\": \"User not found\"}";
+			return "User not found";
 		}
 	}
 	
@@ -61,10 +61,10 @@ public class UsersDBR implements UsersRepository {
 		String userPass = userInDB.getPassword();
 		if(userInDB != null && userPass.equals(password)) {
 			manager.remove(userInDB);
-			return "{\"message\": \"User sucessfully deleted\"}";
+			return "User sucessfully deleted";
 		}
 		else {
-			return"{\\\"message\\\": \\\"User has not been deleted\\\"}";
+			return"User has not been deleted";
 		}
 	
 	}
@@ -77,10 +77,10 @@ public class UsersDBR implements UsersRepository {
 			manager.remove(theUser);
 			UsersTable aUser = util.getObjectForJSON(user, UsersTable.class);
 			manager.persist(aUser);
-			return  "{\"message\": \"User sucessfully updated\"}";
+			return  "User sucessfully updated";
 		}
 		else {
-			return "{\"message\": \"failed to update user\"}";
+			return "failed to update user";
 		}
 	}
 	
