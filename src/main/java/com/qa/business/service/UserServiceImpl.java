@@ -16,11 +16,7 @@ public class UserServiceImpl  implements UserService{
 	@Inject
 	private JSONUtil util;
 	
-	public String CreationChecklist() {
-		return null;
-	}
-	
-	public String createUser(String user) {
+	public String creationChecklist(String user) {
 		UsersTable tempUser = util.getObjectForJSON(user, UsersTable.class);
 		String upperPattern = ".*[A-Z].*";
 		String lowerPattern = ".*[a-z].*";
@@ -33,17 +29,25 @@ public class UserServiceImpl  implements UserService{
 			message = "name has not been entered!";
 			return message;
 		}
-		
-		if(userPass.isEmpty() || !userPass.matches(upperPattern) ||  !userPass.matches(lowerPattern) || !userPass.matches(numPattern)) {
+		if(userPass.isEmpty() || !userPass.matches(upperPattern) || !userPass.matches(numPattern)) {
 			message = "invalid password! must contain one capitol letter, one number and be at least 5 characters long";
 			return message;
 		}
-		if(userMail.isEmpty() || !userMail.contains("@") || !userMail.contains(".com") || !userMail.contains(".co.uk")) {
+		if(userMail.isEmpty() || !userMail.contains("@") && (!userMail.contains(".com") || !userMail.contains(".co.uk"))) {
 			message = "invalid email adress!";
 			return message;
 		}
 		else {
+			return null;
+		}
+	}
+	
+	public String createUser(String user) {
+		if (creationChecklist(user) == null) {
 			return repo.createUser(user);
+		}
+		else {
+			return creationChecklist(user);
 		}
 	}
 
@@ -60,13 +64,11 @@ public class UserServiceImpl  implements UserService{
 	}
 
 	public String updateUser(Long id, String password, String user) {
-		
-		if(user.length() == 0) {
-			String message = "cannot update user with empty field";
-			return message;
+		if (creationChecklist(user) == null) {
+			return repo.updateUser(id, password, user);
 		}
 		else {
-			return repo.updateUser(id, password, user);
+			return creationChecklist(user);
 		}
 	}
 
